@@ -1,0 +1,437 @@
+.testing {
+  width: 71.42857%; }
+
+[ng-cloak].splash {
+  display: block !important;
+}
+.splash {
+  display: none;
+}
+/*.splash {
+  background-color: #428bca;
+}*/
+
+#cssload-pgloading {}
+#cssload-pgloading:after {
+  content: "";
+  z-index: 10;
+  position: absolute;
+  background: rgba(0,0,0,.1);
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+#cssload-pgloading .cssload-loadingwrap {position:fixed;z-index: 14;top:45%;bottom:45%;left:25%;right:25%;}
+#cssload-pgloading .cssload-bokeh {
+  font-size: 138px;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  margin: 0 auto;
+  list-style: none;
+  padding:0;
+  z-index: 12;
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+#cssload-pgloading .cssload-bokeh li {
+  position: absolute;
+  width: .3em;
+  height: .3em;
+  z-index: 15;
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+#cssload-pgloading .cssload-bokeh li:nth-child(1) {
+  left: 50%;
+  top: 0;
+  margin: 0 0 0 -.1em;
+  background: rgb(0,193,118);
+  transform-origin: 50% 250%;
+  -o-transform-origin: 50% 250%;
+  -ms-transform-origin: 50% 250%;
+  -webkit-transform-origin: 50% 250%;
+  -moz-transform-origin: 50% 250%;
+  animation:
+          cssload-rota 1.0765s linear infinite,
+          cssload-opa 3.4835s ease-in-out infinite alternate;
+  -o-animation:
+          cssload-rota 1.0765s linear infinite,
+          cssload-opa 3.4835s ease-in-out infinite alternate;
+  -ms-animation:
+          cssload-rota 1.0765s linear infinite,
+          cssload-opa 3.4835s ease-in-out infinite alternate;
+  -webkit-animation:
+          cssload-rota 1.0765s linear infinite,
+          cssload-opa 3.4835s ease-in-out infinite alternate;
+  -moz-animation:
+          cssload-rota 1.0765s linear infinite,
+          cssload-opa 3.4835s ease-in-out infinite alternate;
+}
+
+#cssload-pgloading .cssload-bokeh li:nth-child(2) {
+  top: 50%;
+  right: 0;
+  margin: -.1em 0 0 0;
+  background: rgb(255,0,60);
+  transform-origin: -150% 50%;
+  -o-transform-origin: -150% 50%;
+  -ms-transform-origin: -150% 50%;
+  -webkit-transform-origin: -150% 50%;
+  -moz-transform-origin: -150% 50%;
+  animation:
+          cssload-rota 1.763s linear infinite,
+          cssload-opa 4.0745s ease-in-out infinite alternate;
+  -o-animation:
+          cssload-rota 1.763s linear infinite,
+          cssload-opa 4.0745s ease-in-out infinite alternate;
+  -ms-animation:
+          cssload-rota 1.763s linear infinite,
+          cssload-opa 4.0745s ease-in-out infinite alternate;
+  -webkit-animation:
+          cssload-rota 1.763s linear infinite,
+          cssload-opa 4.0745s ease-in-out infinite alternate;
+  -moz-animation:
+          cssload-rota 1.763s linear infinite,
+          cssload-opa 4.0745s ease-in-out infinite alternate;
+}
+
+#cssload-pgloading .cssload-bokeh li:nth-child(3) {
+  left: 50%;
+  bottom: 0;
+  margin: 0 0 0 -.1em;
+  background: rgb(250,190,40);
+  transform-origin: 50% -150%;
+  -o-transform-origin: 50% -150%;
+  -ms-transform-origin: 50% -150%;
+  -webkit-transform-origin: 50% -150%;
+  -moz-transform-origin: 50% -150%;
+  animation:
+          cssload-rota 1.3725s linear infinite,
+          cssload-opa 4.866s ease-in-out infinite alternate;
+  -o-animation:
+          cssload-rota 1.3725s linear infinite,
+          cssload-opa 4.866s ease-in-out infinite alternate;
+  -ms-animation:
+          cssload-rota 1.3725s linear infinite,
+          cssload-opa 4.866s ease-in-out infinite alternate;
+  -webkit-animation:
+          cssload-rota 1.3725s linear infinite,
+          cssload-opa 4.866s ease-in-out infinite alternate;
+  -moz-animation:
+          cssload-rota 1.3725s linear infinite,
+          cssload-opa 4.866s ease-in-out infinite alternate;
+}
+
+#cssload-pgloading .cssload-bokeh li:nth-child(4) {
+  top: 50%;
+  left: 0;
+  margin: -.1em 0 0 0;
+  background: rgb(136,193,0);
+  transform-origin: 250% 50%;
+  -o-transform-origin: 250% 50%;
+  -ms-transform-origin: 250% 50%;
+  -webkit-transform-origin: 250% 50%;
+  -moz-transform-origin: 250% 50%;
+  animation:
+          cssload-rota 1.636s linear infinite,
+          cssload-opa 4.9825s ease-in-out infinite alternate;
+  -o-animation:
+          cssload-rota 1.636s linear infinite,
+          cssload-opa 4.9825s ease-in-out infinite alternate;
+  -ms-animation:
+          cssload-rota 1.636s linear infinite,
+          cssload-opa 4.9825s ease-in-out infinite alternate;
+  -webkit-animation:
+          cssload-rota 1.636s linear infinite,
+          cssload-opa 4.9825s ease-in-out infinite alternate;
+  -moz-animation:
+          cssload-rota 1.636s linear infinite,
+          cssload-opa 4.9825s ease-in-out infinite alternate;
+}
+
+
+
+
+
+
+
+@keyframes cssload-rota {
+  from { }
+  to { transform: rotate(360deg); }
+}
+
+@-o-keyframes cssload-rota {
+  from { }
+  to { -o-transform: rotate(360deg); }
+}
+
+@-ms-keyframes cssload-rota {
+  from { }
+  to { -ms-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes cssload-rota {
+  from { }
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes cssload-rota {
+  from { }
+  to { -moz-transform: rotate(360deg); }
+}
+
+@keyframes cssload-opa {
+  0% { }
+  12.0% { opacity: 0.80; }
+  19.5% { opacity: 0.88; }
+  37.2% { opacity: 0.64; }
+  40.5% { opacity: 0.52; }
+  52.7% { opacity: 0.69; }
+  60.2% { opacity: 0.60; }
+  66.6% { opacity: 0.52; }
+  70.0% { opacity: 0.63; }
+  79.9% { opacity: 0.60; }
+  84.2% { opacity: 0.75; }
+  91.0% { opacity: 0.87; }
+}
+
+@-o-keyframes cssload-opa {
+  0% { }
+  12.0% { opacity: 0.80; }
+  19.5% { opacity: 0.88; }
+  37.2% { opacity: 0.64; }
+  40.5% { opacity: 0.52; }
+  52.7% { opacity: 0.69; }
+  60.2% { opacity: 0.60; }
+  66.6% { opacity: 0.52; }
+  70.0% { opacity: 0.63; }
+  79.9% { opacity: 0.60; }
+  84.2% { opacity: 0.75; }
+  91.0% { opacity: 0.87; }
+}
+
+@-ms-keyframes cssload-opa {
+  0% { }
+  12.0% { opacity: 0.80; }
+  19.5% { opacity: 0.88; }
+  37.2% { opacity: 0.64; }
+  40.5% { opacity: 0.52; }
+  52.7% { opacity: 0.69; }
+  60.2% { opacity: 0.60; }
+  66.6% { opacity: 0.52; }
+  70.0% { opacity: 0.63; }
+  79.9% { opacity: 0.60; }
+  84.2% { opacity: 0.75; }
+  91.0% { opacity: 0.87; }
+}
+
+@-webkit-keyframes cssload-opa {
+  0% { }
+  12.0% { opacity: 0.80; }
+  19.5% { opacity: 0.88; }
+  37.2% { opacity: 0.64; }
+  40.5% { opacity: 0.52; }
+  52.7% { opacity: 0.69; }
+  60.2% { opacity: 0.60; }
+  66.6% { opacity: 0.52; }
+  70.0% { opacity: 0.63; }
+  79.9% { opacity: 0.60; }
+  84.2% { opacity: 0.75; }
+  91.0% { opacity: 0.87; }
+}
+
+@-moz-keyframes cssload-opa {
+  0% { }
+  12.0% { opacity: 0.80; }
+  19.5% { opacity: 0.88; }
+  37.2% { opacity: 0.64; }
+  40.5% { opacity: 0.52; }
+  52.7% { opacity: 0.69; }
+  60.2% { opacity: 0.60; }
+  66.6% { opacity: 0.52; }
+  70.0% { opacity: 0.63; }
+  79.9% { opacity: 0.60; }
+  84.2% { opacity: 0.75; }
+  91.0% { opacity: 0.87; }
+}
+
+/*Registration page*/
+
+@media(max-width: 1000px){
+  .loader-modalMain{
+    height: 20vh; width: 55vw; margin: 0 0 0 13vw;
+  }
+}
+
+@media(min-width: 1000px){
+  .loader-modalMain{
+    height: 24vh;
+    width: 40vw;
+    margin: 0 0 0 7vw;
+  }
+}
+
+@media (max-width: 768px){
+  .apply-button{
+    font-size: 0.6em;
+  }
+
+  .register{
+    width: 60vw;
+  }
+
+  .register-date{
+    width: 44vw;
+    margin-left: 6vw;
+  }
+
+  .register-date-label{
+    font-size: 1.5vh !important;
+    padding: 0 !important;
+    margin-left: 1vw !important;
+  }
+
+  .register-date-i{
+    margin-left: -3vw !important;
+  }
+
+  .registerForm{
+    width: 80vw;
+    margin: 0 0 5vh 13vw;
+  }
+
+  .login{
+    width: 45vw;
+  }
+
+  .kImage{
+    height: 25vh;
+    width: 45vw;
+    margin: 3vh 0 0 28vw;
+  }
+
+  .loginForm{
+    width: 60vw;
+    margin: 0 0 0 30vw;
+  }
+
+  .registerButton{
+    margin: 3vh 0 0 30vw !important;
+  }
+
+  .registerButton-register{
+    margin: 3vh 0 8vh 30vw !important;
+  }
+
+  .workshop-register{
+    width: 40vw !important;
+  }
+
+  .login-page{
+    margin-top: 20vh;
+  }
+}
+
+@media (min-width: 769px){
+
+  .apply-button{
+    font-size: 1em;
+  }
+
+  .register{
+    width: 35vw;
+  }
+
+  .register-date{
+    width: 32vw;
+    margin-left: 3vw;
+  }
+
+  .register-date-label{
+    font-size: 2vh !important;
+    padding: 0 !important;
+    margin-left: 1vw !important;
+  }
+
+  .register-date-i{
+    margin-left: -3vw !important;
+  }
+
+  .registerForm{
+    width: 60vw;
+    margin: 0 0 5vh 28vw;
+  }
+
+  .login{
+    width: 20vw;
+  }
+
+  .kImage{
+    height: 25vh;
+    width: 40vw;
+    margin: 3vh 0 0 28vw;
+  }
+
+  .loginForm{
+    width: 60vw;
+    margin: 0 0 0 37vw;
+  }
+
+  .registerButton{
+    margin: 4vh 0 0 37vw !important;
+  }
+
+  .registerButton-register{
+    margin: 4vh 0 7vh 37vw !important;
+  }
+
+  .workshop-register{
+    width: 20vw !important;
+  }
+
+  .login-page{
+    margin-top: 16vh;
+  }
+
+}
+
+@media (max-height: 560px){
+  .loader-modal{
+    height: 71vh;
+  }
+}
+
+@media (min-height: 561px){
+  .loader-modal{
+    height: 69vh;
+  }
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: #607D8B;
+}
+
+.modal-padding{
+  padding-top:10px;
+}
+
+

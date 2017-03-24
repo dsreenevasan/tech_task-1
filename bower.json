@@ -1,0 +1,17 @@
+{
+  "name": "webaholic",
+  "description": "Kore'17 task",
+  "main": "app.js",
+  "authors": [
+    "dsreenevasan@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

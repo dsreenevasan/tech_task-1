@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Webaholic</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!--<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
+
+    <!--build:css css/styles.min.css-->
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <!--endbuild-->
+</head>
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;  }
+</style>
+<body ng-app="web">
+
+
+<!--<div class="loadingscreen bodypart" ng-cloak="">
+    <div class="loading wave" >
+        Abacus
+    </div>
+</div>-->
+<!--<div class="circ" ng-cloak="" >-->
+<!--<div ng-controller="IndexController as ctrl" ></div>-->
+
+
+<!--<div class="circ" ng-cloak="" >
+    <div ng-controller="IndexController as ctrl" ></div>
+    <div class="load">Patience....</div>
+    <div class="hands"></div>
+    <div class="body"></div>
+    <div class="head">
+        <div class="eye"></div>
+    </div>
+</div>-->
+
+<div ui-view></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+
+<script src="https://aframe.io/releases/0.3.2/aframe.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.1/dist/aframe-extras.js"></script>
+<script src="js/map.js"></script>
+
+
+<!-- bower-js -->
+<!--build:js js/main1.min.js -->
+
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/alongpath-component.min.js"></script>
+
+
+<!--Custom js file-->
+<script src="scripts/app.js"></script>
+<script src="scripts/mainController.js"></script>
+<script src="scripts/services/configService.js"></script>
+<script src="scripts/services/loginService.js"></script>
+
+<!-- endbuild -->
+</body>
+</html>

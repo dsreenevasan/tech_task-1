@@ -1,0 +1,321 @@
+<div ng-controller="MainController as ctrl">
+    <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 2vh 0 0 90vw; position: fixed; width: 7vw"
+       ng-click="ctrl.show(1)">Login</a>
+    <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 9vh 0 0 90vw; position: fixed; width: 7vw"
+       ng-click="ctrl.show(2)" ng-if="ctrl.showQn">Qn1</a>
+    <a-scene fog="type: exponential; color: #2A324C; density: 0.4;">
+
+        <a-assets>
+            <img id="texture-floor" src="../images/floor.jpg">
+            <img id="texture-wall" src="../images/wall.jpg">
+        </a-assets>
+
+        <!--<a-entity id="player" camera universal-controls="movementControls: automove, gamepad, keyboard" kinematic-body position="0 0 0">-->
+        <a-entity id="player" camera universal-controls="movementControls:" kinematic-body position="0 0 0">
+            <a-light color="#fff" distance="5" intensity="0.7" type="point"></a-light>
+        </a-entity>
+
+       <!-- <a-entity id="camera-wrapper"  alongpath="">
+            <a-entity id="camera" camera universal-controls="movementControls: keyboard;" kinematic-body position="0 0 0">
+                <a-light color="#fff" distance="5" intensity="0.7" type="point"></a-light>
+            </a-entity>
+        </a-entity>-->
+
+        <a-entity id="walls"></a-entity>
+
+        <a-grid id="ground" static-body material="src: #texture-floor"></a-grid>
+
+        <a-sky id="sky" color="#0000ff"></a-sky>
+
+        <a-light type="ambient" color="#92455E" intensity="0.4"></a-light>
+
+        <a-entity id="register-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#register" open="ctrl.showModal"></a-entity>
+        <a-entity id="login-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#login"></a-entity>
+        <a-entity id="q1-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#q1"></a-entity>
+        <a-entity id="q2-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#q2"></a-entity>
+        <a-entity id="wait-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#wait"></a-entity>
+        <a-entity id="final-dummy" mixin="image" position="0 0 -10" visible="false" material="src: #k" modal href="#final"></a-entity>
+
+    </a-scene>
+
+    <div id="login" class="modal" style="color: black; height: 50vh;">
+        <div class="modal-content no-margin" style="padding: 0">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+
+            <div style="overflow: auto;">
+                <form name="loginForm" class="container loginForm" style="margin: 0 0 0 15vw!important; width: 40vw">
+                    <div input-field class="login" style="margin: 10vh 0 0 0;">
+                        <i class="material-icons prefix">email</i>
+                        <input type="email" ng-model="ctrl.email" length="150" class="validate">
+                        <label data-error="Enter a valid email id">E-mail</label>
+                    </div>
+                    <div input-field class="login" style="margin: 0 0 0 0">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input type="password" ng-model="ctrl.password" length="150">
+                        <label>Password</label>
+                    </div>
+                    <!--<a class="waves-effect waves-red btn col s4 offset-s4 l2 offset-l1 red lighten-1 " style="margin: 2% 0 0 21vw" ng-click="ctrl.cancel()">Cancel</a>-->
+                    <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 4vh 0 0 0;" ng-disabled="ctrl.email == undefined || ctrl.password == undefined"
+                       ng-hide="ctrl.isSubmitting" ng-click="ctrl.login()">Login</a>
+                </form>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="color: white">
+
+        </div>-->
+    </div>
+
+    <div id="register" class="modal" style="color: black; height: 100vh;">
+        <div class="modal-content no-margin" style="padding: 0; ">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+            <form name="registrationForm" class="container registerForm" style="width: 40vw; margin: 10vh 0 10vh 10vw">
+                <div input-field class="register">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input type="text" ng-model="ctrl.name" length="150" required />
+                    <label>Name</label>
+                </div>
+                <div input-field class="register">
+                    <i class="material-icons prefix">email</i>
+                    <input type="email" ng-model="ctrl.email" length="150" required class="validate">
+                    <label data-error="Enter a valid email id">E-mail</label>
+                </div>
+                <div input-field class="register">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input type="password" ng-blur="ctrl.checkLength()" ng-model="ctrl.password" length="32" required>
+                    <label>Password</label>
+                </div>
+                <div input-field class="register">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input type="password" ng-change="ctrl.checkPasswords()" ng-model="ctrl.confirmPassword" length="32" required>
+                    <label>Confirm Password</label>
+                </div>
+                <p style="display:inline; color: red; font-size: 1em" ng-show="!ctrl.passwordsMatch">Passwords do no match.</p>
+                <div input-field class="register">
+                    <!--<i class="material-icons prefix">wc</i>
+                    <label style="margin: 0 0 0 2.3vw">Gender</label><br>-->
+                    <p style="float: left; margin-left: 2.3vw">
+                        <input name="male" type="radio" ng-model="ctrl.gender" ng-click="ctrl.genderStatus('M')" value="M" id="male" />
+                        <label for="male">Male</label>
+                    </p>
+                    <p style="float: left; margin-left: 1vw">
+                        <input name="female" type="radio" ng-model="ctrl.gender" ng-click="ctrl.genderStatus('F')"  value="F" id="female" />
+                        <label for="female">Female</label>
+                    </p>
+                    <br><br><br><br>
+                </div>
+                <div class="register-date">
+                    <input input-date
+                           type="text"
+                           name="created"
+                           id="inputCreated"
+                           ng-model="ctrl.dob"
+                           placeholder="Date of Birth"
+                           container=""
+                           format="dd-mmm-yyyy"
+                           months-full="{{ ctrl.month }}"
+                           months-short="{{ ctrl.monthShort }}"
+                           weekdays-full="{{ ctrl.weekdaysFull }}"
+                           weekdays-short="{{ ctrl.weekdaysShort }}"
+                           weekdays-letter="{{ ctrl.weekdaysLetter }}"
+                           disable="ctrl.disable"
+                           min="{{ ctrl.minDate }}"
+                           max="{{ ctrl.maxDate }}"
+                           today="ctrl.today"
+                           first-day="1"
+                           clear="ctrl.clear"
+                           close="ctrl.close"
+                           select-years="64"
+                           on-start="ctrl.onStart()"
+                           on-render="ctrl.onRender()"
+                           on-open="ctrl.onOpen()"
+                           on-close="ctrl.onClose()"
+                           on-set="ctrl.onSet()"
+                           on-stop="ctrl.onStop()" required/>
+                </div>
+                <div input-field class="register">
+                    <i class="material-icons prefix">call</i>
+                    <input type="number" ng-min="7000000000" ng-max="9999999999" ng-model="ctrl.contactNumber" length="150" required>
+                    <label>Contact number</label>
+                </div>
+                <div input-field class="register-date">
+                    <select class="browser-default" ng-model="ctrl.department" material-select watch >
+                        <option ng-repeat="value in ctrl.departments track by $index">{{value}}</option>
+                    </select>
+                </div>
+                <div input-field class="register-date">
+                    <select class="browser-default" ng-model="ctrl.college" material-select watch >
+                        <option ng-repeat="value in ctrl.colleges track by $index">{{value}}</option>
+                    </select>
+                </div>
+                <div input-field class="register">
+                    <i class="material-icons prefix">school</i>
+                    <input type="text" ng-model="ctrl.degree" length="150" required>
+                    <label>Degree</label>
+                </div>
+                <div input-field class="register" >
+                    <i class="material-icons prefix">event</i>
+                    <input type="number" ng-change="ctrl.validateYear()" ng-model="ctrl.year" length="150" required>
+                    <label>Year</label>
+                </div>
+                <!--<div input-field class="register">
+                    <i class="material-icons prefix">call</i>
+                    <input type="number" ng-min="7000000000" ng-max="9999999999" ng-model="ctrl.contactNumber" length="150" required>
+                    <label>Contact number</label>
+                </div>-->
+                <!--<div input-field class="register" style="float: left">
+                    <i class="material-icons prefix">wc</i>
+                    <input type="text" ng-model="ctrl.SAId" length="150">
+                    <label>Referral(Student Ambassador Id)<Id></Id></label>
+                </div>-->
+                <!--<a class="btn-floating btn-large waves-effect waves-light black-text" style="margin: 1vh 0 0 3vw; width: 36px; height: 36px; background-color:#39a558;">
+                    <i class="material-icons" style="line-height: 1px;" ng-click="ctrl.referSA()">done</i>
+                </a>-->
+                <!--<a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 apply-button" style="margin: 2vh 0 0 3vw; width: 8vw; padding-left: 1vw;" ng-disabled="ctrl.SAId == undefined" ng-click="ctrl.referSA()" ng-if="ctrl.type == 'student'">Apply</a>-->
+                <!--<a class="waves-effect waves-red btn col s4 offset-s4 l2 offset-l1 red lighten-1 " style="margin: 2% 0 0 21vw" ng-click="ctrl.cancel()">Cancel</a>-->
+                <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 register modal-close" style="margin: 5vh 0 0 0vw;" ng-disabled="registrationForm.$invalid || !ctrl.passwordsMatch || ctrl.passwordWithinLength || ctrl.yearNotValid"
+                   ng-hide="ctrl.isSubmitting" ng-click="ctrl.register()">Register</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="q1" class="modal" style="color: black; height: 54vh;">
+        <div class="modal-content no-margin" style="padding: 0">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+            <div class="row" style=" width:55vw">
+                <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Question 1</span>
+                            <p>
+                                Tags and test that are not directly displayed on the page are written in _____ section.<br><br>
+
+                                a. &lt;html&gt;<br>
+
+                                b. &lt;head&gt;<br>
+
+                                c. &lt;title&gt;<br>
+
+                                d. &lt;body&gt;<br>
+                            </p>
+                        </div>
+                        <div class="card-action" style="height: 20vh">
+                            <div input-field class="login" style="margin: 0 0 0 0; float: left">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input type="text" ng-model="ctrl.answer" length="150">
+                                <label>Answer(Enter the option)</label>
+                            </div>
+                            <a href="#">
+                                <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 4vh 0 0 4vw;" ng-disabled="ctrl.answer == undefined"
+                                  ng-click="ctrl.verify(1)">Submit</a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="color: white">
+
+        </div>-->
+    </div>
+
+    <div id="q2" class="modal" style="color: black; height: 54vh;">
+        <div class="modal-content no-margin" style="padding: 0">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+            <div class="row" style=" width:55vw">
+                <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Question 2</span>
+                            <p>
+                                Choose the correct HTML tag for the smallest size heading?<br>
+                                a. &lt;heading&gt;<br>
+
+                                b. &lt;h6&gt;<br>
+
+                                c. &lt;h1&gt;<br>
+
+                                d. &lt;head&gt;<br>
+                            </p>
+                        </div>
+                        <div class="card-action" style="height: 20vh">
+                            <div input-field class="login" style="margin: 0 0 0 0; float: left">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input type="text" ng-model="ctrl.answer" length="150">
+                                <label>Answer(Enter the option)</label>
+                            </div>
+                            <a href="#">
+                                <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 4vh 0 0 4vw;" ng-disabled="ctrl.answer == undefined"
+                                   ng-click="ctrl.verify(2)">Submit</a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="color: white">
+
+        </div>-->
+    </div>
+
+    <div id="wait" class="modal" style="color: black; height: 20vh;">
+        <div class="modal-content no-margin" style="padding: 0">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+            <div class="row" style=" width:55vw">
+                <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text" style="text-align: center">
+                            <span class="card-title" ></span>
+                            <h4>The next question unlocks in {{ctrl.counter}}s</h4>
+                        </div>
+                        <a id="wait-button" class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 4vh 0 0 4vw; visibility: hidden"
+                           >Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="color: white">
+
+        </div>-->
+    </div>
+
+
+    <div id="final" class="modal" style="color: black; height: 20vh;">
+        <div class="modal-content no-margin" style="padding: 0">
+            <div class="modal-header" style="background: #e0c453 ; position: fixed; width: 100%">
+            </div>
+            <div class="row" style=" width:55vw">
+                <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text" style="text-align: center">
+                            <span class="card-title" ></span>
+                            <h3>
+                                THANKS FOR PARTICIPATING!
+                            </h3>
+                        </div>
+                        <!--<div class="card-action" style="height: 20vh">
+                            <div input-field class="login" style="margin: 0 0 0 0; float: left">
+                                <i class="material-icons prefix">vpn_key</i>
+                                <input type="text" ng-model="ctrl.answer" length="150">
+                                <label>Answer(Enter the option)</label>
+                            </div>
+                            <a href="#">
+                                <a class="waves-effect waves-light btn col s4 offset-s4 l2 offset-l1 login modal-close" style="margin: 4vh 0 0 4vw;" ng-disabled="ctrl.answer == undefined"
+                                   ng-click="ctrl.verify(2)">Submit</a>
+                            </a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="modal-footer" style="color: white">
+
+        </div>-->
+    </div>
+
+
+</div>
