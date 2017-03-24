@@ -1,0 +1,6 @@
+Tech Task -1
+
+1) Easter Eggs in Website
+2) AR app
+3) Internal Messaging system between Kores that works without data.
+4) Theme based Websites for Online Events.
